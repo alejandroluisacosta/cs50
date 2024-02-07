@@ -1,0 +1,9 @@
+// include libraries
+
+// declare main
+
+// prompt user for height
+
+// for (i = 1; i < n; i++)
+    // printf(#\n)
+

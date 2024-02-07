@@ -1,0 +1,11 @@
+sort1 uses: Bubble Sort
+
+How do you know?: It takes a lower ammount of time if the numbers are sorted.
+
+sort2 uses: Merge Sort
+
+How do you know?: Execution time doesn't increase significantly if the ammount of numbers gets bigger.
+
+sort3 uses: Selection Sort
+
+How do you know?: It takes significantly more time to execute if the ammount of numbers gets bigger, and since we already know sort1 uses Bubble Sort, Selection Sort becomes the only option avaliable.

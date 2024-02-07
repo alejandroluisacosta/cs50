@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
+        <title>Alex's favorite books</title>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(){
+                let options = document.querySelectorAll(".options");
+                for (let option = 0; option < options.length; option++)
+                {
+                    options[option].addEventListener("click", function(){
+                        if (options[option].id == "noRead")
+                        {
+                            answer1.style.display = "block";
+                            answer2.style.display = "none";
+                            answer3.style.display = "none";
+                        }
+                        else if (options[option].id == "readOne")
+                        {
+                            answer2.style.display = "block";
+                            answer1.style.display = "none";
+                            answer3.style.display = "none";
+                        }
+                        else
+                        {
+                            answer3.style.display = "block";
+                            answer1.style.display = "none";
+                            answer2.style.display = "none";
+                        }
+                    })
+                }
+            })
+        </script>
+    </head>
+    <body>
+        <div>
+            <h1>So you like books, huh?</h1>
+            <h3>In this page you'll find a list of five books that have changed the way I perceive the world.</h3>
+            <p>These aren't necessarily my "favorite" books, since it's hard for me to define favorites in almost every category
+            (except for burgers, where my ultimate favorite is caramelized onion & goat's chesse), but a list of the books that have more
+            profoundly changed me. I'm pretty sure that, if you give them a try, they'll change you too.
+            </p>
+        </div>
+        <br>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Book title</th>
+                        <th>Author</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Sapiens</th>
+                        <th>Yuval Noah Harari</th>
+                    </tr>
+                    <tr>
+                        <th>The Magic of Thinking Big</th>
+                        <th>David Schwartz</th>
+                    </tr>
+                    <tr>
+                        <th>The Power of Now</th>
+                        <th>Eckhart Tolle</th>
+                    </tr>
+                    <tr>
+                        <th>Everything Is F*cked: A Book About Hope</th>
+                        <th>Mark Manson</th>
+                    </tr>
+                    <tr>
+                        <th>The Laws of Human Nature</th>
+                        <th>Robert Greene</th>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <br>
+            <br>
+        </div>
+        <div>
+            <h2>How many of these books have you read?</h2>
+            <br>
+            <h5 style="display: none" id="answer1">You've read none of them? Well, I recommend you to pick The Magic of Thinking Big whenever you can :)</h5>
+            <h5 style="display: none" id="answer2">That's great! Feel like we could be friends!</h5>
+            <h5 style="display: none" id="answer3">Whoa! We should have a conversation soon! Nice taste on books, by the way ;)</h5>
+            <button class="options" id="noRead">None</button>
+            <button class="options" id="readOne">One - Two</button>
+            <button class="options">3+</button>
+        </div>
+        <div>
+            <br>
+            <br>
+            <br>
+            <h3>What would you like to check out now?</h3>
+            <button onclick="location.href='index.html'" type="button">Main page</button>
+            <button onclick="location.href='book.html'" type="button">Alex's book</button>
+            <button onclick="location.href='sport.html'" type="button">Favorite sport</button>
+        </div>
+    </body>
+
+</html>

@@ -1,0 +1,146 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Lecciones
+{% endblock %}
+
+{% block head %}
+<script>
+    /* Show lessons of each part when clicked */
+    document.addEventListener("DOMContentLoaded", function(){ /* Wait until page is loaded */
+        let parts = document.querySelectorAll(".parts"); /* Select "part" buttons */
+        let shown = []; /* Indicator to show or hide "part" buttons */
+        for (let part = 0; part < parts.length; part++)
+        {
+            parts[part].addEventListener("click", function myfunc(){ /* Add event on click */
+                let i = (part * 3) + 1; /* Index of first lesson/exercise of each part */
+                shown[part] = true; /* Set indicator to true before first click */
+                for (let k = i; k < i + 3; k++) /* Loop from [part + 1] through [part + 3] to show part's lessons and exercises */
+                {
+                    let show_lesson = document.getElementById("lesson" + k).style.display = shown[i] ? "block" : "none"; /* Show/hide part's lessons */
+                    let show_exercises = document.getElementById("exercise" + k).style.display = shown[i] ? "block" : "none"; /* Show/hide part's exercises */
+                }
+                shown[i] = !shown[i]; /* Change value of indicator */
+            })
+        }
+    })
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function(){ /* Wait until page is loaded */
+        let exercises = document.querySelectorAll(".exercises"); /* Array with all exercises */
+        let shown = []; /* Indicator to show or hide exerciseText */
+        for (let exercise = 0; exercise < exercises.length; exercise++)
+        {
+            exercises[exercise].addEventListener("click", function(){ /* Add event on click */
+                let i = exercise + 1; /* Index of clicked exercise */
+                shown[exercise] = true; /* Set indicator to true before first click */
+                for (let j = 1; j < exercises.length + 1; j++)
+                {
+                    document.getElementById("exerciseText" + j).style.display = "none"; /* Hide all exerciseTexts */
+                }
+                let show_text = document.getElementById("exerciseText" + i).style.display = shown[i] ? "block" : "none"; /* Show only clicked exerciseText // Hide if clicked again */
+                shown[i] = !shown[i]; /* Change value of indicator */
+            })
+        }
+    })
+</script>
+{% endblock %}
+
+{% block main %}
+<div>
+    <img src="/static/lessons-banner.png" style="margin-bottom: 40px">
+</div>
+<div>
+    <button class="parts mx-auto btn btn-primary btn-lg" id="part1">Parte 1: Toma distancia</button>
+    <a href="https://youtu.be/wUHxMuXjQ40" target="_blank"><img src="/static/lesson1.png" style="display: none" class="mx-auto lesson-banner" id="lesson1"></a>
+    <button class="exercises mx-auto btn btn-primary btn-lg" style="display: none" id="exercise1">Ejercicio #1</button>
+    <p style="display: none" id="exerciseText1">Escribe cuáles son los 5 pensamientos que más te frenan a la hora de lograr lo que quieres (no me alcanza el tiempo, ahora no me provoca, es muy difícil...). Pueden perfectamente ser más de 5.
+
+        Detállalos bien. Puedes empezar escribiendo todos los patrones de PQSs que suelas ver en ti (ej.: «no puedo hacer X porque no soy inteligente», «nunca conseguiré lo que quiero porque mi crianza me dañó la vida»...) y luego, agrupa los que provengan de la misma raíz.
+
+        Por ejemplo: si escribes 9 patrones de pensamientos recurrentes y ves que tres de ellos están enraizados en tu falta de carácter a la hora de exigir lo que es justo, agrúpalos en una misma categoría llamada «falta de carácter».
+
+        Al finalizar el curso te darás cuenta de que la mayoría de tus PQSs provienen de unas pocas causas principales. Información invaluable para empezar a trabajar en ellos.
+
+        Invierte al menos 20 minutos en este ejercicio. Si puedes llegar a los 30 (incluso 40 o más), mejor.
+
+        Empieza a exprimir tu mente y ten los resultados de esta actividad a la mano por el resto del curso.
+        </p>
+    <a href="https://youtu.be/wUHxMuXjQ40" target="_blank"><img src="/static/lesson2.png" style="display: none" class="mx-auto lesson-banner" id="lesson2"></a>
+    <button class="exercises mx-auto btn btn-primary btn-lg" style="display: none" id="exercise2">Ejercicio #2</button>
+    <p style="display: none" id="exerciseText2">Así como nos sorprende el hecho de que los pensamientos sean involuntarios, es igualmente sorprendente la capacidad que tiene nuestro cerebro para brincar de un pensamiento a otro haciendo las conexiones más extrañas que podamos imaginar.<br>
+        <br>
+        Mira este ejemplo que haré en tiempo real: estoy pensando en este Audiocurso, lo que me hace imaginarme un salón de clases con una pizarra verde, lo que me hace imaginar un rico aguacate en mi plato junto a unas lentejas, lo que me hace imaginarme las flatulencias que producen los granos, y el escribir granos me hizo pensar en los granos que nos salen en la cara, y eso me hizo pensar en el pus, y el pus, extrañamente, ¡en un helado de mantecado!<br>
+        <br>
+        ¿Tiene sentido? Ni el más mínimo. Para el ejercicio de hoy toma lápiz y papel, configura un cronómetro de un minuto, y haz lo mismo que yo hice en el texto anterior: escribe lo primero que te llegue a la mente y arranca desde allí a hacer conexiones sin sentido por los próximos 60 segundos.<br>
+        <br>
+        Luego, lee lo que escribiste y analiza lo absurdo de la situación. Si te provoca risa, no la frenes: ríete de las locuras en las que piensa nuestro cerebro si le damos rienda suelta y aprovecha para pensar en esos pensamientos que te están frenando desde hace tanto tiempo. ¿Tienen sentido, o son poco más que loqueras aleatorias que tu mente imagina?<br>
+        <br>
+        Si te apetece, repite este ejercicio una o dos veces más. Es corto y divertido.<br>
+        <br>
+        A escribir. Nos escuchamos mañana en la próxima sesión.
+        </p>
+    <a href="https://youtu.be/wUHxMuXjQ40" target="_blank"><img src="/static/lesson3.png" style="display: none" class="mx-auto lesson-banner" id="lesson3"></a>
+    <button class="exercises mx-auto btn btn-primary btn-lg" style="display: none" id="exercise3">Ejercicio #3</button>
+    <p style="display: none" id="exerciseText3">
+        - Vuelve a escribir en tu diario tomando los mismos 10 minutos de ayer. Si pueden ser más, mejor.<br>
+        <br>
+        - Toma nota de todos los pensamientos repetidos y cuando reconozcas uno de ellos, profundiza. Sin miedo.<br>
+        <br>
+        - Al finalizar, tómate 5 minutos adicionales para escribir al menos 10 cosas por las que estés profundamente agradecido/a acerca de tu vida. Incluye cosas básicas y trata de sentir verdadera gratitud con la vida a medida que escribes.
+    </p>
+</div>
+<div>
+    <button class="parts mx-auto btn btn-primary btn-lg" id="part2">Parte 2: Reconoce</button>
+    <a href="https://youtu.be/wUHxMuXjQ40" target="_blank"><img src="/static/lesson4.png" style="display: none" class="mx-auto lesson-banner" id="lesson4"></a>
+    <button class="exercises mx-auto btn btn-primary btn-lg" style="display: none" id="exercise4">Ejercicio #4</button>
+    <p style="display: none" id="exerciseText4">Discute con un amigo o amiga de confianza los pensamientos que escribiste ayer. Si te sientes cómodo/a, cuéntale cómo te sentiste y pregúntale si en algún momento se ha sentido igual. ¿Pueden pensar en más situaciones donde esto les haya ocurrido? ¿Saben de alguna otra persona que haya pasado por esta guerra mental pero nunca le haya sucedido eso que tanto temía? Discutan el tema por un rato y determinen si en alguna de esas situaciones el miedo los hizo actuar de una manera inesperada.
+    </p>
+    <a href="https://youtu.be/wUHxMuXjQ40" target="_blank"><img src="/static/lesson5.png" style="display: none" class="mx-auto lesson-banner" id="lesson5"></a>
+    <button class="exercises mx-auto btn btn-primary btn-lg" style="display: none" id="exercise5">Ejercicio #5</button>
+    <p style="display: none" id="exerciseText5">¿Cómo describirías el miedo que sientes cuando te preocupa un posible escenario negativo que se encuentra en el futuro?<br>
+        <br>
+        Digamos que hoy te dan una noticia o descubres algo que te hace preocupar. Empiezas a imaginar cosas y, tras unos minutos, llegas a la conclusión de que lo que se viene es una tragedia y no hay nada que puedas hacer para cambiarlo.<br>
+        <br>
+        Responde a las siguientes preguntas:<br>
+        <br>
+        ¿Cómo te sientes a nivel físico?<br>
+        <br>
+        ¿Cómo se siente tú estómago?<br>
+        <br>
+        ¿Cómo se siente tú cabeza?<br>
+        <br>
+        ¿Cómo es tu respiración?<br>
+        <br>
+        ¿Qué pensamientos te vienen a la cabeza?<br>
+        <br>
+        ¿Tus manos tiemblan?<br>
+        <br>
+        Describe este sentimiento lo mejor que puedas y eso sí, apenas termines, recuerda que esto es solo un ejercicio y que nada malo va a suceder. Luego vuelve a tu estado natural, el que tenías antes de comenzar, y analiza las sensaciones. ¿Tienen sentido? ¿Son exageradas? ¿Te ayudan en algo o serías más productivo de cara a las posibles consecuencias si estuvieras frío de mente y de pulso firme?<br>
+        </p>
+    <a href="https://youtu.be/wUHxMuXjQ40" target="_blank"><img src="/static/lesson6.png" style="display: none" class="mx-auto lesson-banner" id="lesson6"></a>
+    <button class="exercises mx-auto btn btn-primary btn-lg" style="display: none" id="exercise6">Ejercicio #6</button>
+    <p style="display: none" id="exerciseText6">
+        Práctica frente al espejo las siguientes emociones:<br>
+        <br>
+        - Alegría<br>
+        - Tranquilidad<br>
+        - Preocupación<br>
+        - Miedo<br>
+        - Ira<br>
+        - Alegría de nuevo<br>
+        - Frustración<br>
+        - Preocupación de nuevo<br>
+        - Sorpresa<br>
+        - Asco<br>
+        - Alegría de nuevo<br>
+        <br>
+        La idea es que hagas las expresiones faciales correspondientes por al menos 10 segundos cada una y trates de imitarlas lo mejor que puedas. Para ayudarte, piensa en eventos que te hagan sentir cada una de las emociones.<br>
+        <br>
+        La intención de este ejercicio es que te hagas consciente de cómo se ve tu cara cuando sientes cada una de estas cosas. Como resultado, irás aprendiendo a reconocerlas cuando aparezcan y así evitarás sentir algo que no te conviene de forma involuntaria.<br>
+        <br>
+        No guardes esta práctica solo para hoy. Sigue repitiéndola a lo largo del curso y con el tiempo, te harás un experto reconociendo tanto tus emociones como las de los demás.<br>
+    </p>
+</div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <table>
+        <thead>
+            <tr>
+                <th>Transaction</th>
+                <th>Company</th>
+                <th>Shares traded</th>
+                <th>Price</th>
+                <th>Value</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Loop through the database entries to display them in this table -->
+            {% for transaction in transactions %}
+                <tr>
+                    <td>{{ transaction["transaction_type"] }}</td>
+                    <td>{{ lookup(transaction["symbol"]).symbol }}</td>
+                    <td>{{ transaction["shares"] }}</td>
+                    <td>{{ lookup(transaction["symbol"]).price }}</td>
+                    <td>{{ usd(lookup(transaction["symbol"]).price * transaction["shares"]) }}</td>
+                    <td>{{ transaction["time"] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</div>
+{% endblock %}

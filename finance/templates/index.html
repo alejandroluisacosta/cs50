@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <table>
+        <thead>
+            <tr>
+                <th>Company</th>
+                <th>Shares owned</th>
+                <th>Current price</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Loop through the database entries to display them in this table -->
+            {% for company in owned_shares %}
+                <tr>
+                    <td>{{ lookup(company["symbol"]).symbol }}</td>
+                    <td>{{ company["shares"] }}</td>
+                    <td>{{ lookup(company["symbol"]).price }}</td>
+                    <td>{{ usd(lookup(company["symbol"]).price * company["shares"]) }}</td>
+                </tr>
+            {% endfor %}
+                    <tr name="no-border">
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td><b>Cash</b></td>
+                        <td><b>{{ usd(cash[0]["cash"]) }}</b></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td><b>TOTAL</b></td>
+                        <td><b>{{ usd(cash[0]["cash"] + total_holdings) }}</b></td>
+                    </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+{% endblock %}
